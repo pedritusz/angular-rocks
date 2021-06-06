@@ -1,0 +1,10 @@
+<div class=" container-fluid row">
+
+    <div style="background:blue" (click)="clickAction('primary')" class="col-2 "><img class="image-icon"
+            [src]="itemGroupList.imageUrl"></div>
+    <div style="background:green" (click)="clickAction('primary')" class="col-8">
+        <h2>{{itemGroupList.nombreDeGrupo}}</h2>
+    </div>
+    <div style="background:red" class="col-2" (click)="clickAction('secondary')">eliminar</div>
+
+</div>

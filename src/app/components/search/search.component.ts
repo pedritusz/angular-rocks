@@ -1,6 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { fromEvent } from 'rxjs';
+
 
 
 @Component({
@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   
  getGroups(){
    if(this.searchText !== ""){
-   console.log(this.searchText)
+   // funcion del servicio encargada de filtrar
    }
  }
  
