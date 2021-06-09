@@ -1,0 +1,18 @@
+
+.button-component-wrapper{
+    
+    display: flex;
+    margin: 0;
+   padding: 0;
+}
+
+.button-component-button{
+
+    background-color: red;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+   margin: 0;
+   padding: 0;
+    font-size: 3rem;
+}

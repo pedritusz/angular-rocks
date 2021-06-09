@@ -10,6 +10,8 @@ import { FormComponent } from './pages/form/form.component';
 import { SearchComponent } from './components/search/search.component';
 import {FormsModule} from '@angular/forms';
 import { ItemGroupListComponent } from './components/item-group-list/item-group-list.component';
+import { ButtonComponent } from './components/button/button.component';
+import { RockService } from './services/rock.service';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,15 @@ import { ItemGroupListComponent } from './components/item-group-list/item-group-
     DocumentacionComponent,
     FormComponent,
     SearchComponent,
-    ItemGroupListComponent
+    ItemGroupListComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

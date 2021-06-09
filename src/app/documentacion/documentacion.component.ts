@@ -14,7 +14,9 @@ nombreDeGrupo : 'sdfgas'
    }
 
   constructor() { }
-
+boton(){
+  alert('boton clicado')
+}
   ngOnInit(): void {
   }
 
