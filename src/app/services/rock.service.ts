@@ -1,6 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { EventEmitter, Injectable, OnInit } from '@angular/core';
+
+import { BehaviorSubject, observable, Observable, } from 'rxjs';
 import { DetailGroupInterface } from '../interfaces/detail-group';
+import { LocalStorageGroups } from '../interfaces/local-storage-groups';
 import { groups } from '../mocks/mock'
 
 @Injectable({
@@ -8,48 +10,92 @@ import { groups } from '../mocks/mock'
 })
 export class RockService implements OnInit {
 
-allGroups: DetailGroupInterface[] | undefined;
-mockgroups = new groups();
-getDbJsonGroups:any;
-ngOnInit(){
-  
+  allGroups$: EventEmitter<groups> = new EventEmitter();
+  data: LocalStorageGroups = {
+    grupos: []
   }
-getDetails(id:number){
 
+  mockgroups = new groups();
 
-  
+  ngOnInit() {
 
-}
-  constructor() { 
+  }
+ 
+  constructor() {
+
+  }
+  deleteGroup(id: number) {
     
-  }
-  deleteGroup(id:number){
+    let groups = this.data
+    groups.grupos.map((group, idx)=>{
+      if(group.id === id){
+        groups.grupos.splice(idx,1)
+      }
+    })
+    localStorage.clear()
+    window.localStorage.setItem("db", JSON.stringify(groups))
+    this.getGroups()
 
   }
-  
-  firstConfiguration(){
-    if(window.localStorage.length == 0){
-      
-      window.localStorage.setItem("db",JSON.stringify(this.mockgroups))
+
+  firstConfiguration() {
+    if (window.localStorage.length == 0) {
+
+      window.localStorage.setItem("db", JSON.stringify(this.mockgroups.grupos))
       this.getGroups()
-    }else{
+    } else {
       this.getGroups()
     }
+    /* prueba  v*/
+    console.log('id =>',this.generateId());
     
-  }
-
-
-
-  getGroups(){
-    this.getDbJsonGroups = window.localStorage.getItem('db')
-    this.getDbJsonGroups = JSON.parse(this.getDbJsonGroups)
-   console.log(this.getDbJsonGroups)
-  }
-
-  setNewGroup(){
 
   }
 
+
+
+  getGroups() {
+
+    let getDbJsonGroups: any;
+
+    getDbJsonGroups = window.localStorage.getItem('db')
+    getDbJsonGroups = JSON.parse(getDbJsonGroups)
+
+    this.allGroups$.emit(getDbJsonGroups)
+    this.data = getDbJsonGroups;
+
+
+
+  }
+
+  setNewGroup(group:DetailGroupInterface) {
+    group.id = this.generateId()
+    let groups = this.data
+    groups.grupos.push(group)
+    localStorage.clear()
+    window.localStorage.setItem("db", JSON.stringify(groups))
+    this.getGroups()
+
+  }
+
+  generateId():any {
+    let idconf: number;
+    idconf = Math.random() * 1000
+    idconf = Math.round(idconf)
+
+    if (this.data.grupos.find((group) => {
+      group.id === idconf
+    }) === undefined) {
+      return idconf
+    } else {
+      return this.generateId()
+    }
+
+
+
+
+
+  }
 
 }
 
