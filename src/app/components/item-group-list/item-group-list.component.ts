@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ItemGroupListInterface } from '../../interfaces/item-group-list.interface';
 import { RockService } from '../../services/rock.service'
 import { Router } from '@angular/router'
+import { DetailGroupInterface } from 'src/app/interfaces/detail-group';
 
 
 
@@ -13,21 +13,22 @@ import { Router } from '@angular/router'
 
 export class ItemGroupListComponent implements OnInit {
   @Output()
-  event : EventEmitter<string> = new EventEmitter();
+  event : EventEmitter<object> = new EventEmitter();
+
   @Input()
-  itemGroupList!: ItemGroupListInterface;
+  itemGroupList!: DetailGroupInterface;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  clickAction( arg : string, data? : any ) {
+
+    this.event.emit( {
+      action : arg,
+      data,
+    })
 
   }
-
-  clickAction(arg: string) {
-    this.event.emit(arg)
-  }
-
-  
-
-
 
 }

@@ -14,8 +14,9 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
   
  getGroups(){
+   
    if(this.searchText !== ""){
-   // funcion del servicio encargada de filtrar
+   
    }
  }
  
