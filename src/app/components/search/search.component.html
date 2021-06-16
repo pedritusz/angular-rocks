@@ -2,9 +2,9 @@
 
     <div class="input-group mb-3">
 
-        <input type="text" class="form-control"  [(ngModel)]="searchText" placeholder="introduce el nombre del grupo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" (keydown)="getGroups()"  [(ngModel)]="searchText" placeholder="introduce el nombre del grupo" aria-label="Recipient's username" aria-describedby="basic-addon2">
         
-          <span class="input-group-text input-group-append" (click)="getGroups()" id="basic-addon2">
+          <span class="input-group-text input-group-append" id="basic-addon2">
 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
              

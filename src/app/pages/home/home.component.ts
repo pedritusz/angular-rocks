@@ -11,6 +11,7 @@ import { RockService } from 'src/app/services/rock.service';
 export class HomeComponent implements OnInit {
 
   groups : any ;
+ 
 
   constructor(public rockService:RockService) {
 
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit {
   itemGrouplistClickAction($event:any){
     
 
+
     if($event.action == 'primary'){
 
       
@@ -51,15 +53,17 @@ export class HomeComponent implements OnInit {
 
   }
 
-  searchGroup(){
-
-
-  }
 
   toPage(){
 
   }
 
+  SearchGroup($event:any){
+    console.log($event)
+    
+    
+
+  }
   
 
 }

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RockService } from '../../services/rock.service'
-import { Router } from '@angular/router'
+
 import { DetailGroupInterface } from 'src/app/interfaces/detail-group';
 
 

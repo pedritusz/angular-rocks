@@ -110,10 +110,36 @@ export class RockService implements OnInit {
 
     }
 
+  }
 
+  searchGroup(searchText:string){
+    
+    this.allGroups$.emit(undefined)
+    let search:any[]=[];
+      
+    
 
+    this.data.find( (group) =>{
+      
+      
+      if( searchText == ""){
+        console.log('else');
+        
+        this.getGroups()
 
+      }
 
+      if(group.name.toLowerCase().includes(searchText.toLowerCase()) == true){
+
+        
+       search.push(group)
+
+      }
+
+      
+      
+    })
+    this.allGroups$.emit(search as unknown as groups)
   }
 
 }

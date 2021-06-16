@@ -1,8 +1,9 @@
-<app-search></app-search>
+<app-search ($emition)="rockService.searchGroup($event)"></app-search>
 
 <div *ngFor="let group of groups; index as i">
   
     <app-item-group-list (event)="itemGrouplistClickAction($event)" 
-        [itemGroupList]="group"></app-item-group-list>
+        [itemGroupList]="group">
+    </app-item-group-list>
 
 </div>
