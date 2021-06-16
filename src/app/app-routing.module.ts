@@ -7,7 +7,7 @@ import {FormComponent} from './pages/form/form.component';
 const routes: Routes = [
   { path: '', component: DocumentacionComponent,  pathMatch: 'full'},
   { path: 'home', component: HomeComponent ,  pathMatch: 'full'},
-  { path: 'details/:group', component: DeailsComponent,  pathMatch: 'full'},
+  { path: 'details/:id', component: DeailsComponent,  pathMatch: 'full'},
   { path: 'form', component: FormComponent,  pathMatch: 'full'}
 ];
 
