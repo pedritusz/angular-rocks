@@ -1,1 +1,37 @@
-<p>form works!</p>
+<!--id:number;
+    name:string;
+    imageUrl:string;
+    biography:string;
+    videoUrl:string;
+    albums: AlbumsInterface[];-->
+<form [formGroup]="newGroup" class="container">
+    <div class="form-group">
+        <label for="nombre del grupo">nombre del grupo</label>
+        <input formControlName="name" type="text" name="nombre" id="nombre">
+    </div>
+
+    <textarea formControlName="biography" class="form-group" name="biografia" rows="10" cols="40">Escribe la biografia del grupo</textarea>
+
+    <div class="form-group">
+        <label for="url de la imagen">url de la imagen</label>
+        <input formControlName="image" type="url" name="url" id="url">
+    </div>
+
+    <div class="form-group">
+        <label for="Url del videoclip">Url del videoclip</label>
+        <input formControlName="video" type="text" name="videoclip" id="videoclip">
+    </div>
+    <div *ngIf="albums[0]">
+        <div *ngFor="let album of albums,let i = index">
+            <div>{{album}} </div><button (click)="deleteAlbum(i)" >eliminar album</button>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="nombre del album">nombre del album</label>
+        <input formControlName="album" type="text" name="album" id="album">
+        <button (click)="addAlbum()">añadir album</button>
+    </div>
+
+    <input type="submit" (click)="submit()" value="submit">
+</form>

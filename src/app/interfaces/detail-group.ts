@@ -7,6 +7,6 @@ export interface DetailGroupInterface {
     imageUrl:string;
     biography:string;
     videoUrl:string;
-    albums: AlbumsInterface[];
+    albums: [];
 
 }

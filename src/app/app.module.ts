@@ -22,7 +22,8 @@ import { RockService } from './services/rock.service';
     FormComponent,
     SearchComponent,
     ItemGroupListComponent,
-    ButtonComponent
+    ButtonComponent,
+    
   ],
   imports: [
     BrowserModule,

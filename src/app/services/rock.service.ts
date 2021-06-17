@@ -79,10 +79,14 @@ export class RockService implements OnInit {
   }
 
   setNewGroup(group:DetailGroupInterface) {
-
+    console.log("set",group);
+    this.getGroups();
     group.id = this.generateId();
+    console.log("set",this.data);
     let groups = this.data;
+    console.log("set",groups);
     groups.push(group);
+    console.log("set",groups);
     localStorage.clear();
     window.localStorage.setItem("db", JSON.stringify(groups));
     this.getGroups();
