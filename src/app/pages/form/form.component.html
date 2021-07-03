@@ -4,6 +4,8 @@
     biography:string;
     videoUrl:string;
     albums: AlbumsInterface[];-->
+    
+<button [routerLink]="['']" >volver</button>
 <form [formGroup]="newGroup" class="container">
     <div class="form-group">
         <label for="nombre del grupo">nombre del grupo</label>
@@ -12,17 +14,26 @@
 
     <textarea formControlName="biography" class="form-group" name="biografia" rows="10" cols="40">Escribe la biografia del grupo</textarea>
 
-    <div class="form-group">
+    <div *ngIf="id != undefined" class="form-group">
+        <label for="url de la imagen">url de la imagen if</label>
+        <input formControlName="image"  type="url" [placeholder]="data.imageUrl" name="url" id="url">
+    </div>
+
+    <div  *ngIf="id === undefined" class="form-group">
         <label for="url de la imagen">url de la imagen</label>
         <input formControlName="image" type="url" name="url" id="url">
     </div>
 
-    <div class="form-group">
+    <div *ngIf="id != undefined" class="form-group">
+        <label for="Url del videoclip">Url del videoclip if</label>
+        <input formControlName="video" type="text"   name="videoclip" id="videoclip">
+    </div>
+    <div *ngIf="id === undefined" class="form-group">
         <label for="Url del videoclip">Url del videoclip</label>
         <input formControlName="video" type="text" name="videoclip" id="videoclip">
     </div>
-    <div *ngIf="albums[0]">
-        <div *ngFor="let album of albums,let i = index">
+    <div *ngIf="data.albums">
+        <div *ngFor="let album of data.albums,let i = index">
             <div>{{album}} </div><button (click)="deleteAlbum(i)" >eliminar album</button>
         </div>
 

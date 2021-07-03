@@ -6,10 +6,11 @@ import {DeailsComponent} from './pages/deails/deails.component';
 import {FormComponent} from './pages/form/form.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms'
 const routes: Routes = [
-  { path: '', component: DocumentacionComponent,  pathMatch: 'full'},
-  { path: 'home', component: HomeComponent ,  pathMatch: 'full'},
+  { path: '', component: HomeComponent,  pathMatch: 'full'},
+  { path: 'documentacion', component: HomeComponent ,  pathMatch: 'full'},
   { path: 'details/:id', component: DeailsComponent,  pathMatch: 'full'},
-  { path: 'form', component: FormComponent,  pathMatch: 'full'}
+  { path: 'form', component: FormComponent,  pathMatch: 'full'},
+  { path: 'edit/:id', component: FormComponent,  pathMatch: 'full'}
 ];
 
 @NgModule({

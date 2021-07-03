@@ -75,18 +75,16 @@ export class RockService implements OnInit {
     this.allGroups$.emit(getDbJsonGroups);
     this.data as DetailGroupInterface[]; 
     getDbJsonGroups as DetailGroupInterface[];
-    this.data= getDbJsonGroups;
+    this.data = getDbJsonGroups;
+    console.log(this.data);
+    
   }
 
   setNewGroup(group:DetailGroupInterface) {
-    console.log("set",group);
     this.getGroups();
     group.id = this.generateId();
-    console.log("set",this.data);
     let groups = this.data;
-    console.log("set",groups);
     groups.push(group);
-    console.log("set",groups);
     localStorage.clear();
     window.localStorage.setItem("db", JSON.stringify(groups));
     this.getGroups();

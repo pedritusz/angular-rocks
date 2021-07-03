@@ -1,6 +1,8 @@
 
-<div *ngIf="group && group.name">
+<button [routerLink]="['']" >volver</button>
 
+<div *ngIf="group && group.name">
+<button (click)="toEdit(group.id)">sdss</button>
 <h1 >{{group.name}}</h1>
 <img src={{group.imageUrl}} class="img-fluid" alt="Responsive image">
 <h2></h2>

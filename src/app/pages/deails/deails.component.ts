@@ -1,7 +1,8 @@
 
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailGroupInterface } from 'src/app/interfaces/detail-group';
 import { RockService } from 'src/app/services/rock.service';
 
@@ -15,7 +16,7 @@ export class DeailsComponent implements OnInit {
   group: DetailGroupInterface | undefined;
 
 
-  constructor(public activateRoute: ActivatedRoute, public rockService: RockService, public domSanitizer: DomSanitizer) {
+  constructor(public activateRoute: ActivatedRoute, public rockService: RockService, public domSanitizer: DomSanitizer,public router:Router) {
 
   }
 
@@ -37,6 +38,9 @@ export class DeailsComponent implements OnInit {
     })
 
 
+  }
+  toEdit(id:any){
+    this.router.navigate(['edit/'+ id])
   }
 
 }

@@ -1,3 +1,34 @@
-.image-icon{
-    width: 50px;
+
+@media   (orientation:landscape) {
+        
+    
 }
+.item-group-list--delete-container{
+    left: 85%;
+    position: relative;
+    top: 20%;
+    color:red;
+    
+}
+.item-group-list--text{
+    text-align: center;
+}
+.item-group-list--image{
+    width: 100%;
+}
+.item-group-list--image-container{
+       
+        width: 100%;
+        margin-top: 1rem;
+        
+    }
+    .container-fluid row{
+        display: flex;
+    }
+    .name-delete--container{
+        display: flex;
+    }
+    .container-component{
+        width: 100%;
+        position: relative;
+    }
